@@ -1,0 +1,22 @@
+{
+  "name": "mmdb-bootstrap",
+  "description": "custom bootstrap theme for mmdb",
+  "main": "gulpfile.js",
+  "authors": [
+    "nick makes"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
