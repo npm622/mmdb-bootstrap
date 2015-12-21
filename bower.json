@@ -12,8 +12,12 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "src",
     "test",
-    "tests"
+    "tests",
+    "package.json",
+    "bower.json",
+    "gulpfile.js"
   ],
   "dependencies": {
     "bootstrap": "~3.3.6"
