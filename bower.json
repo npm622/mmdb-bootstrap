@@ -1,13 +1,14 @@
 {
   "name": "mmdb-bootstrap",
   "description": "custom bootstrap theme for mmdb",
-  "main": "gulpfile.js",
   "authors": [
     "nick makes"
   ],
-  "license": "ISC",
-  "moduleType": [],
-  "homepage": "",
+  "main": [
+	'dist/css/mmdb-bootstrap.css',
+	'dist/js/mmdb-jquery.js',
+	'dist/js/mmdb-bootstrap.js'
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
