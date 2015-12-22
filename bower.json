@@ -5,9 +5,9 @@
     "nick makes"
   ],
   "main": [
-	'dist/css/mmdb-bootstrap.css',
-	'dist/js/mmdb-jquery.js',
-	'dist/js/mmdb-bootstrap.js'
+	"dist/css/mmdb-bootstrap.css",
+	"dist/js/mmdb-jquery.js",
+	"dist/js/mmdb-bootstrap.js"
   ],
   "ignore": [
     "**/.*",
