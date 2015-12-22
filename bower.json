@@ -17,7 +17,8 @@
     "tests",
     "package.json",
     "bower.json",
-    "gulpfile.js"
+    "gulpfile.js",
+    "README.md"
   ],
   "dependencies": {
     "bootstrap": "~3.3.6"
