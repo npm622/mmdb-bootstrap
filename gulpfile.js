@@ -1,4 +1,7 @@
-var gulp = require( 'gulp' ), bower = require( 'gulp-bower' ), less = require( 'gulp-less' ), rename = require( 'gulp-rename' );
+var gulp = require( 'gulp' );
+var bower = require( 'gulp-bower' );
+var less = require( 'gulp-less' );
+var rename = require( 'gulp-rename' );
 
 var config = {
 	bowerDir : './bower_components',
@@ -9,20 +12,20 @@ var config = {
 }
 
 gulp.task( 'bower', function() {
-    return bower().pipe( gulp.dest( config.bowerDir ) )
+	return bower().pipe( gulp.dest( config.bowerDir ) )
 } );
 
-gulp.task ( 'bootstrap', function() {
+gulp.task( 'bootstrap', [ 'bower' ], function() {
 	gulp.src( [ '/bootstrap/dist/js/bootstrap.js', '/jquery/dist/jquery.js' ].map( function(e) {
 		return config.bowerDir + e;
 	} ) ).pipe( rename( {
-		dirname: '',
-		prefix: 'mmdb-'
+		dirname : '',
+		prefix : 'mmdb-'
 	} ) ).pipe( gulp.dest( config.jsOutput ) );
 } );
 
-gulp.task( 'less', function () {  
-  gulp.src( config.lessInput ).pipe( less() ).pipe( gulp.dest( config.lessOutput ) );
+gulp.task( 'less', [ 'bower' ], function() {
+	gulp.src( config.lessInput ).pipe( less() ).pipe( gulp.dest( config.lessOutput ) );
 } );
 
 gulp.task( 'default', [ 'bower', 'bootstrap', 'less' ] );
