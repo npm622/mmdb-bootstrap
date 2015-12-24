@@ -7,7 +7,8 @@ var config = {
 	bowerDir : './bower_components',
 	lessInput : './src/less/mmdb-bootstrap.less',
 	lessOutput : './dist/css/',
-	jsOutput : './dist/js/'
+	jsOutput : './dist/js/',
+	fontFiles : './bower_components/bootstrap/dist/fonts/**'
 
 }
 
@@ -28,4 +29,8 @@ gulp.task( 'less', [ 'bower' ], function() {
 	gulp.src( config.lessInput ).pipe( less() ).pipe( gulp.dest( config.lessOutput ) );
 } );
 
-gulp.task( 'default', [ 'bower', 'bootstrap', 'less' ] );
+gulp.task( 'fonts', [ 'bower' ], function() {
+	gulp.src( [config.fontFiles] ).pipe( gulp.dest( 'dist/fonts/' ) );
+} );
+
+gulp.task( 'default', [ 'bower', 'bootstrap', 'less', 'fonts' ] );
