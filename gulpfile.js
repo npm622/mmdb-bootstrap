@@ -31,6 +31,9 @@ var dest = {
     icons : {
         path : 'dist/fonts'
     },
+    js : {
+        path : 'dist/js'
+    },
     styles : {
         path : 'dist/css',
         filename : 'main.css'
@@ -41,15 +44,7 @@ gulp.task( 'bower', function() {
     return bower().pipe( gulp.dest( dest.bower.path ) );
 } );
 
-gulp.task( 'fonts', [ 'bower' ], function() {
-    return gulp.src( fonts.src ).pipe( gulp.dest( dest.fonts.path ) );
-} );
-
-gulp.task( 'icons', [ 'bower' ], function() {
-    return gulp.src( icons.src ).pipe( gulp.dest( dest.icons.path ) );
-} );
-
-gulp.task( 'css', function() {
+gulp.task( 'css', [ 'bower' ], function() {
     var sassStream = sass( {
         includePaths : styles.includes
     } );
@@ -62,4 +57,12 @@ gulp.task( 'css', function() {
 
 } );
 
-gulp.task( 'default', [ 'fonts', 'icons', 'css' ] );
+gulp.task( 'fonts', [ 'bower' ], function() {
+    return gulp.src( fonts.src ).pipe( gulp.dest( dest.fonts.path ) );
+} );
+
+gulp.task( 'icons', [ 'bower' ], function() {
+    return gulp.src( icons.src ).pipe( gulp.dest( dest.icons.path ) );
+} );
+
+gulp.task( 'default', [ 'css', 'fonts', 'icons' ] );

@@ -1,7 +1,7 @@
 {
   "name": "mmdb-bootstrap",
   "description": "a less-driven custom bootstrap build that ships with req'd js",
-  "main": ["dist/css/main.css"],
+  "main": "dist/css/main.css",
   "moduleType": [],
   "license": "MIT",
   "ignore": [
