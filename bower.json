@@ -1,36 +1,30 @@
-{  
-   "name":"mmdb-bootstrap",
-   "description":"a less-driven custom bootstrap build that ships with req'd js",
-   "main":[  
-      "dist/css/mmdb-bootstrap.css",
-      "dist/js/mmdb-jquery.js",
-      "dist/js/mmdb-bootstrap.js"
-   ],
-   "moduleType":[  
-
-   ],
-   "license":"MIT",
-   "ignore":[  
-      "**/.*",
-      "node_modules",
-      "bower_components",
-      "test",
-      "tests",
-      "src",
-      "package.json",
-      "gulpfile.js",
-      "README.md"
-   ],
-   "authors":[  
-      "nick makes"
-   ],
-   "homepage":"git://github.com/npm622/mmdb-bootstrap",
-   "repository":{  
-      "type":"git",
-      "url":"git://github.com/npm622/mmdb-bootstrap"
-   },
-   "dependencies":{  
-      "bootstrap":"~3.3.6"
-   }
+{
+  "name": "mmdb-bootstrap",
+  "description": "a less-driven custom bootstrap build that ships with req'd js",
+  "main": ["dist/css/main.css", "dist/fonts/*"],
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "package.json",
+    "gulpfile.js",
+    "README.md"
+  ],
+  "authors": [
+    "nick makes"
+  ],
+  "homepage": "git://github.com/npm622/mmdb-bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/npm622/mmdb-bootstrap"
+  },
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "font-awesome": "fontawesome#~4.6.3"
+  }
 }
-

@@ -1,36 +1,65 @@
 var gulp = require( 'gulp' );
 var bower = require( 'gulp-bower' );
-var less = require( 'gulp-less' );
-var rename = require( 'gulp-rename' );
+var concat = require( 'gulp-concat' );
+var sass = require( 'gulp-sass' );
 
-var config = {
-	bowerDir : './bower_components',
-	lessInput : './src/less/mmdb-bootstrap.less',
-	lessOutput : './dist/css/',
-	jsOutput : './dist/js/',
-	fontFiles : './bower_components/bootstrap/dist/fonts/**'
+var bowerDir = 'bower';
 
+var srcDir = 'src';
+var distDir = 'dist';
+
+var fonts = {
+    src : [ bowerDir + '/bootstrap-sass/assets/fonts/bootstrap/*' ]
 }
 
+var icons = {
+    src : [ bowerDir + '/font-awesome/fonts/*' ]
+}
+
+var styles = {
+    includes : [ bowerDir + '/bootstrap-sass/assets/stylesheets' ],
+    src : [ bowerDir + '/font-awesome/scss/font-awesome.scss', 'src/bootstrap-import.scss', 'src/css/**/*.scss' ]
+}
+
+var dest = {
+    bower : {
+        path : bowerDir
+    },
+    fonts : {
+        path : 'dist/fonts/bootstrap'
+    },
+    icons : {
+        path : 'dist/fonts'
+    },
+    styles : {
+        path : 'dist/css',
+        filename : 'main.css'
+    }
+};
+
 gulp.task( 'bower', function() {
-	return bower().pipe( gulp.dest( config.bowerDir ) )
-} );
-
-gulp.task( 'bootstrap', [ 'bower' ], function() {
-	gulp.src( [ '/bootstrap/dist/js/bootstrap.js', '/jquery/dist/jquery.js' ].map( function(e) {
-		return config.bowerDir + e;
-	} ) ).pipe( rename( {
-		dirname : '',
-		prefix : 'mmdb-'
-	} ) ).pipe( gulp.dest( config.jsOutput ) );
-} );
-
-gulp.task( 'less', [ 'bower' ], function() {
-	gulp.src( config.lessInput ).pipe( less() ).pipe( gulp.dest( config.lessOutput ) );
+    return bower().pipe( gulp.dest( dest.bower.path ) );
 } );
 
 gulp.task( 'fonts', [ 'bower' ], function() {
-	gulp.src( [config.fontFiles] ).pipe( gulp.dest( 'dist/fonts/' ) );
+    return gulp.src( fonts.src ).pipe( gulp.dest( dest.fonts.path ) );
 } );
 
-gulp.task( 'default', [ 'bower', 'bootstrap', 'less', 'fonts' ] );
+gulp.task( 'icons', [ 'bower' ], function() {
+    return gulp.src( icons.src ).pipe( gulp.dest( dest.icons.path ) );
+} );
+
+gulp.task( 'css', function() {
+    var sassStream = sass( {
+        includePaths : styles.includes
+    } );
+
+    sassStream.on( 'error', function( e ) {
+        console.log( e.message )
+    } );
+
+    return gulp.src( styles.src ).pipe( sassStream ).pipe( concat( dest.styles.filename ) ).pipe( gulp.dest( dest.styles.path ) );
+
+} );
+
+gulp.task( 'default', [ 'fonts', 'icons', 'css' ] );

@@ -1,24 +1,22 @@
-{  
-   "name":"mmdb-bootstrap",
-   "version":"0.0.0",
-   "description":"a less-driven custom bootstrap build that ships with req'd js",
-   "keywords":[  
-
-   ],
-   "homepage":"https://github.com/npm622/mmdb-bootstrap#readme",
-   "bugs":{  
-      "url":"https://github.com/npm622/mmdb-bootstrap/issues"
-   },
-   "license":"MIT",
-   "author":"nick makes",
-   "repository":{  
-      "type":"git",
-      "url":"git+https://github.com/npm622/mmdb-bootstrap.git"
-   },
-   "devDependencies":{  
-      "gulp":"^3.9.0",
-      "gulp-bower":"0.0.11",
-      "gulp-less":"^3.0.5",
-      "gulp-rename":"^1.2.2"
-   }
+{
+  "name": "mmdb-bootstrap",
+  "version": "0.0.0",
+  "description": "a less-driven custom bootstrap build that ships with req'd js",
+  "keywords": [],
+  "homepage": "https://github.com/npm622/mmdb-bootstrap#readme",
+  "bugs": {
+    "url": "https://github.com/npm622/mmdb-bootstrap/issues"
+  },
+  "license": "MIT",
+  "author": "nick makes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npm622/mmdb-bootstrap.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-bower": "0.0.11",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2"
+  }
 }
